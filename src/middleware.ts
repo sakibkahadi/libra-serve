@@ -8,6 +8,7 @@ export const BASE_DOMAIN = process.env.NEXT_PUBLIC_BASE_DOMAIN || "localhost:300
 export function middleware(request: NextRequest) {
     // Clone the URL object so we can safely manipulate it if needed
     const url = request.nextUrl.clone();
+const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
 
     // Get the Host header from the incoming request, e.g. "xyz.localhost:3000"
     const host = request.headers.get("host");
@@ -61,7 +62,7 @@ export function middleware(request: NextRequest) {
         if (!isValid) {
             // If subdomain is invalid, redirect to a not-found page on main domain
             console.log("Invalid subdomain:", subdomain);
-            return NextResponse.redirect(new URL(`http://${BASE_DOMAIN}/not-found`, request.url));
+            return NextResponse.redirect(new URL(`${protocol}://${BASE_DOMAIN}/not-found`, request.url));
         }
         
         // If valid subdomain, rewrite URL to internal route under /clients/[slug]
