@@ -12,7 +12,7 @@ export default function MainLayoutProvider({children}:{children:ReactNode}) {
     <div>
     <QueryClientProvider client={queryClient}>
         <Navbar />
-        <div className="container  mx-auto h-screen">
+        <div className="">
             {children}
         </div>
         <Footer />
