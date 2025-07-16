@@ -1,5 +1,6 @@
 import Banner from "./Banner";
 import Category from "./Category";
+import PopularCategory from "./PopularCategory";
 
 export interface TBanner {
   section_title: string;
@@ -82,12 +83,25 @@ export default function HomepageContainer() {
   },
 ];
 
+const popularCategory :TSection []=[
+{
+  uuid:1,
+  section_title:"Explore Popular Book Categories",
+  section_sub_title:"Discover which genres our readers love the most — updated based on library trends."
+}
+]
+
 
   return (
     <div className="">
       <Banner banner={bannerData[0]} />
     <div className="bg-[#D8E6F3]">
           <Category  categoryCard={categoryCard} category={category[0]} />
+    </div>
+    {/* charts */}
+    
+    <div>
+      <PopularCategory popularCategory={popularCategory[0]} />
     </div>
     </div>
   );
