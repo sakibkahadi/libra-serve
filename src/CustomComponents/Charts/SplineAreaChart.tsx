@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import dynamic from 'next/dynamic';
@@ -17,7 +18,7 @@ type SplineLineChartProps = {
 };
 
 // 
-const SplineLineChart = ({ categories, series, colors = ['#10b981', '#3b82f6'] }: SplineLineChartProps) => {
+const SplineLineChart = ({ categories, series, colors }: SplineLineChartProps) => {
   const options: ApexOptions = {
     chart: {
       type: 'line',
